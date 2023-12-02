@@ -31,20 +31,6 @@ public class TemperatureValueTest
         // Assert
         testObject.Should().NotBeNull();
     }
-    [Theory]
-    [InlineData(-1000)]
-    [InlineData(1000)]
-    public void Constructor_Value_Invalid_Test(Decimal testValue)
-    {
-        // Arrange
-        
-        // Act
-        Temperature testObject = new(testValue);
-        
-        // Assert
-        testObject.Should().NotBeNull();
-    }
-    
 
     [Fact]
     public void Method_Implicit_Value_Valid_Test()

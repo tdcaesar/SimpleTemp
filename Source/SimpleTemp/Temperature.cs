@@ -4,18 +4,13 @@ public class Temperature
 {
     private const Decimal DefaultValue = 0;
     private const TemperatureScale DefaultScale = TemperatureScale.Celsius;
-    private Decimal Value { get; }
-    private TemperatureScale Scale { get; }
+    public Decimal Value { get; }
+    public TemperatureScale Scale { get; }
 
     public Temperature(Decimal value = DefaultValue, TemperatureScale scale = DefaultScale)
     {
         Scale = scale;
-        TemperatureRange range = TemperatureRange.Create(scale);
-        if (range.IsValueInRange(value))
-            Value = value;
-        else
-            throw new ArgumentOutOfRangeException(nameof(value),
-                "The value must be within range for the temperature scale.");
+        Value = value;
     }
 
     public static implicit operator Decimal(Temperature value) => value.Value;
